@@ -27,7 +27,7 @@ def get_transactions():
 def add_transaction():
     if request.method == 'POST':
         transaction = {
-            'id': len(transactions) + 1.
+            'id': len(transactions) + 1,
             'date': request.form['date'],
             'amount': float(request.form['amount'])
         }
@@ -43,13 +43,13 @@ def add_transaction():
 
 @app.route("/edit/<int:transaction_id>", methods=['GET', 'POST'])
 def edit_transaction(transaction_id):
-    if request.method == 'POST'
+    if request.method == 'POST':
 
         date = request.form['date']
         amount = float(request.form['amount'])
 
         for transaction in transactions:
-            if transaction['id'] == transaction_id
+            if transaction['id'] == transaction_id:
                 transaction['date']  = date
                 transaction['amount'] = amount
                 break
